@@ -30,13 +30,6 @@ Trie.prototype.getWords = function(words, currentWord){
     }
   }
   return words;
-
-
-
-  // This function will return all the words which are
-  // contained in this Trie.
-  // it will use currentWord as a prefix,
-  // since a Trie doesn't know about its parents.
 };
 
 Trie.prototype.find = function(word, index){
