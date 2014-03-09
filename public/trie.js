@@ -17,6 +17,22 @@ Trie.prototype.learn = function(word, index){
 };
 
 Trie.prototype.getWords = function(words, currentWord){
+  words = words || [];
+  currentWord = currentWord || "";
+  if (this.isWord) {
+    words.push(currentWord);
+  }
+
+  for (var char in this.characters) {
+    var newWord = currentWord + char;
+    if (this.characters[char].characters) {
+      this.characters[char].getWords(words, newWord);
+    }
+  }
+  return words;
+
+
+
   // This function will return all the words which are
   // contained in this Trie.
   // it will use currentWord as a prefix,
