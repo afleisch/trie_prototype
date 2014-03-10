@@ -33,10 +33,14 @@ Trie.prototype.getWords = function(words, currentWord){
 };
 
 Trie.prototype.find = function(word, index){
-  // This function will return the node in the trie
-  // which corresponds to the end of the passed in word.
-
-  // Be sure to consider what happens if the word is not in this Trie.
+  word = word || ""
+  index = index || 0;
+  var n = word[index]
+  if (index === word.length){
+    return this;
+  } else if (this.characters[n]){
+    return this.characters[n].find(word, index+1);
+  }
 };
 
 Trie.prototype.autoComplete = function(prefix){
