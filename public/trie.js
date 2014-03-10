@@ -44,7 +44,10 @@ Trie.prototype.find = function(word, index){
 };
 
 Trie.prototype.autoComplete = function(prefix){
-  // This function will return all completions 
-  // for a given prefix.
-  // It should use find and getWords.
+ var n = this.find(prefix);
+ if (!n) {
+  return [];
+ }
+ var result = n.getWords([], prefix);
+ return n.getWords([], prefix);
 };
